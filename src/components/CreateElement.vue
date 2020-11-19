@@ -5,7 +5,9 @@
         <span class="h3">Заметки - Создать</span>
       </div>
     </nav>
-<hr>
+
+    <hr />
+
     <form>
       <div class="form-group">
         <label class="d-flex justify-content-start">Note name</label>
@@ -25,7 +27,7 @@
         <label class="d-flex justify-content-start">Note text</label>
         <textarea type="text" class="form-control" />
       </div>
-      <div class="form-group form-check d-flex justify-content-start">
+      <div class="form-group d-flex justify-content-start">
         <label class="">Check if important</label>
         <input type="radio" class="form-radio-input ml-3" />
       </div>
