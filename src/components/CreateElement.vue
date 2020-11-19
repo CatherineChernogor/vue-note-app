@@ -31,12 +31,14 @@
         <label class="">Check if important</label>
         <input type="radio" class="form-radio-input ml-3" />
       </div>
-      <button
-        type="button"
-        class="btn btn-primary d-flex justify-content-start"
-      >
-        Submit
-      </button>
+      <div class="form-group d-flex justify-content-start">
+        <button
+          type="button"
+          class="btn btn-primary d-flex justify-content-start"
+        >
+          Submit</button
+        ><router-link class="btn btn-secondary ml-3" to="/">Назад</router-link>
+      </div>
     </form>
   </div>
 </template>

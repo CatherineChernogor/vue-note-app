@@ -7,7 +7,7 @@
       <div class="">
         <button
           type="button"
-          class="btn btn-danger"
+          class="btn btn-danger mr-3"
           v-on="deleteTasks()"
           v-if="showDelButton"
         >
@@ -44,7 +44,7 @@
             <div v-else></div>
           </td>
 
-          <td>{{ task.name }}</td>
+          <td><router-link  class="" to="/view">{{ task.name }}</router-link></td>
 
           <td>{{ task.type }}</td>
         </tr>
@@ -89,7 +89,7 @@ export default {
         isDel += task.shouldBeDeleted;
       });
       this.showDelButton = isDel;
-      console.log(this.showDelButton);
+      //console.log(this.showDelButton);
     },
     deleteTasks: function () {
       //this.showDelButton = 0;

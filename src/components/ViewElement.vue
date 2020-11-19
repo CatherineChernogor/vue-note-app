@@ -4,7 +4,7 @@
       <div class="">
         <span class="h3">Заметки - Просмотр</span>
       </div>
-      <button class="btn btn-primary">Назад</button>
+      <router-link class="btn btn-secondary" to="/">Назад</router-link>
     </nav>
 
     <div class="card">
