@@ -1,17 +1,12 @@
 <template>
   <div id="app" class="container-sm">
-    <ViewElement msg="Welcome to Your Vue.js App" />
+    <router-view />
   </div>
 </template>
 
 <script>
-import ViewElement from "./components/ViewElement.vue";
-
 export default {
   name: "App",
-  components: {
-    ViewElement,
-  },
 };
 </script>
 
