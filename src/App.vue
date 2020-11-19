@@ -1,16 +1,16 @@
 <template>
   <div id="app" class="container-sm">
-    <NoteList msg="Welcome to Your Vue.js App" />
+    <CreateElement msg="Welcome to Your Vue.js App" />
   </div>
 </template>
 
 <script>
-import NoteList from "./components/NoteList.vue";
+import CreateElement from "./components/CreateElement.vue";
 
 export default {
   name: "App",
   components: {
-    NoteList,
+    CreateElement,
   },
 };
 </script>

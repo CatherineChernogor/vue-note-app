@@ -9,12 +9,10 @@ new Vue({
   render: h => h(App),
 }).$mount('#app')
 
-const Foo = { template: '<div>foo</div>' }
-const Bar = { template: '<div>bar</div>' }
+const Create = { template: '<div>create</div>' }
 
 const routes = [
-  { path: '/foo', component: Foo },
-  { path: '/bar', component: Bar }
+  { path: '/create', component: Create },
 ]
 
 const router = new VueRouter({
