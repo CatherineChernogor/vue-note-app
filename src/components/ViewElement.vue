@@ -2,7 +2,7 @@
   <div>
     <nav class="nav d-flex justify-content-between">
       <div class="">
-        <span class="h3">Заметки - Просмотр</span>
+        <span class="h3">Notes - View {{task.name}}</span>
       </div>
       <router-link class="btn btn-secondary" to="/">Назад</router-link>
     </nav>
@@ -36,15 +36,7 @@ export default {
 
   data() {
     return {
-      task: {
-        name: "task1",
-        type: "1",
-        isImpotrant: false,
-        shouldBeDeleted: false,
-
-        text:
-          "some text of task1 some text of task1 some text of task1 some text of task1 some text of task1 some text of task1 some text of task1",
-      },
+      task: this.$route.params.task
     };
   },
   methods: {},

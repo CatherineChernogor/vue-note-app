@@ -18,13 +18,18 @@ const router = new VueRouter({
       path: '/',
       component: NoteList
     },
+
     {
-      path: '/view',
-      component: ViewElement
-    }]
+      path: '/view/:task.taskid',
+      component: ViewElement,
+    },
+  ]
 })
 
 new Vue({
   router,
-  render: h => h(App),
+  created: function () {
+    sessionStorage.counter = 0;
+  },
+  render: h => h(App)
 }).$mount('#app')

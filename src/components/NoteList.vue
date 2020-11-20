@@ -2,7 +2,7 @@
   <div>
     <nav class="nav d-flex justify-content-between">
       <div class="">
-        <span class="h3">Заметки</span>
+        <span class="h3">Notes</span>
       </div>
       <div class="">
         <button
@@ -44,7 +44,9 @@
             <div v-else></div>
           </td>
 
-          <td><router-link  class="" to="/view">{{ task.name }}</router-link></td>
+          <td>
+            <router-link class="" to="/view/10">{{ task.name }}</router-link>
+          </td>
 
           <td>{{ task.type }}</td>
         </tr>
@@ -60,28 +62,15 @@ export default {
   data() {
     return {
       showDelButton: false,
-      tasks: [
-        {
-          name: "task1",
-          type: "1",
-          isImpotrant: true,
-          shouldBeDeleted: false,
-
-          text:
-            "some text of task1 some text of task1 some text of task1 some text of task1 some text of task1 some text of task1 some text of task1",
-        },
-        {
-          name: "task2",
-          type: "1",
-          isImpotrant: false,
-          shouldBeDeleted: false,
-
-          text:
-            "some text of task2 some text of task2 some text of task2 some text of task2 some text of task1 some text of task1 some text of task1",
-        },
-      ],
+      tasks: [],
     };
   },
+  mounted() {
+    if (sessionStorage.tasks) {
+      this.tasks = JSON.parse(sessionStorage.tasks);
+    }
+  },
+
   methods: {
     changeShouldBeDeleted: function () {
       let isDel = 0;
