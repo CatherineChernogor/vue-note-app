@@ -85,8 +85,8 @@ export default {
       this.newTask.name = this.name;
       this.newTask.type = this.selected;
 
-      if (this.picked == "y") this.newTask.isImportant = "yes";
-      else this.newTask.isImportant = "no";
+      if (this.picked == "y") this.newTask.isImportant = true;
+      else this.newTask.isImportant = false;
 
       this.newTask.text = this.text;
       this.newTask.shouldBeDeleted = false;

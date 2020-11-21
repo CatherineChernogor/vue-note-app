@@ -8,8 +8,8 @@
         <button
           type="button"
           class="btn btn-danger mr-3"
-          v-on="deleteTasks()"
-          v-if="showDelButton"
+          @click="deleteTasks()"
+          v-if="showDeleteButton == true"
         >
           Delete
         </button>
@@ -29,8 +29,9 @@
           <th scope="col">type</th>
         </tr>
       </thead>
+
       <tbody>
-        <tr v-for="task in tasks" :key="task.message">
+        <tr v-for="task in tasks" :key="task.id">
           <td>
             <input
               type="checkbox"
@@ -40,14 +41,12 @@
           </td>
 
           <td>
-            <div v-if="task.isImpotrant" class="img-sm"></div>
+            <div v-if="task.isImportant == true" class="img-sm"></div>
             <div v-else></div>
           </td>
-
           <td>
             <router-link class="" to="/view/10">{{ task.name }}</router-link>
           </td>
-
           <td>{{ task.type }}</td>
         </tr>
       </tbody>
@@ -61,7 +60,8 @@ export default {
 
   data() {
     return {
-      showDelButton: false,
+      showDeleteButton: false,
+      shouldBeDeletedArray: [],
       tasks: [],
     };
   },
@@ -70,18 +70,33 @@ export default {
       this.tasks = JSON.parse(sessionStorage.tasks);
     }
   },
-
+  watch: {
+    shouldBeDeletedArray: function () {
+      this.showDeleteButton =
+        this.shouldBeDeletedArray.length > 0 ? true : false;
+    },
+  },
   methods: {
     changeShouldBeDeleted: function () {
-      let isDel = 0;
+      let shouldBeDeletedIds = [];
+
       this.tasks.forEach((task) => {
-        isDel += task.shouldBeDeleted;
+        if (task.shouldBeDeleted) shouldBeDeletedIds.push(task.id);
       });
-      this.showDelButton = isDel;
-      //console.log(this.showDelButton);
+      this.shouldBeDeletedArray = shouldBeDeletedIds;
     },
     deleteTasks: function () {
-      //this.showDelButton = 0;
+      let ids = this.shouldBeDeletedArray;
+      let result = [];
+
+      this.tasks.forEach((element) => {
+        if (ids.indexOf(element.id) == -1) result.push(element);
+      });
+
+      sessionStorage.tasks = JSON.stringify(result);
+      this.tasks = result;
+      this.shouldBeDeletedArray = [];
+      this.showDeleteButton = false;
     },
   },
 };
