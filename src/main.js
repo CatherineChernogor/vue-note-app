@@ -4,6 +4,7 @@ import App from './App.vue'
 import NoteList from './components/NoteList.vue';
 import ViewElement from './components/ViewElement.vue';
 import CreateElement from './components/CreateElement.vue';
+
 Vue.use(VueRouter);
 
 Vue.config.productionTip = false
@@ -18,10 +19,10 @@ const router = new VueRouter({
       path: '/',
       component: NoteList
     },
-
     {
-      path: '/view/:task.taskid',
-      component: ViewElement,
+      path: '/view/:id',
+      component: ViewElement, 
+      name: 'view'
     },
   ]
 })

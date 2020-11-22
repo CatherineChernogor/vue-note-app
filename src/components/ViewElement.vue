@@ -2,7 +2,7 @@
   <div>
     <nav class="nav d-flex justify-content-between">
       <div class="">
-        <span class="h3">Notes - View {{task.name}}</span>
+        <span class="h3">Notes - View {{ task.name }}</span>
       </div>
       <router-link class="btn btn-secondary" to="/">Назад</router-link>
     </nav>
@@ -18,8 +18,8 @@
         </p>
         <p class="d-flex justify-content-start">
           <strong>
-            <span v-if="task.isImpotrant">Important</span>
-            <span v-else>Not important</span>
+            <div v-if="task.isImportant == true">Important</div>
+            <div v-else>not Important</div>
           </strong>
         </p>
         <p class="card-text d-flex justify-content-start text-left">
@@ -32,12 +32,21 @@
 
 <script>
 export default {
-  name: "NoteList",
+  name: "ViewElement",
 
   data() {
     return {
-      task: this.$route.params.task
+      id: this.$route.params.id,
     };
+  },
+  computed: {
+    task: function () {
+      let task;
+      JSON.parse(sessionStorage.tasks).forEach((element) => {
+        if (element.id == this.id) task = element;
+      });
+      return task;
+    },
   },
   methods: {},
 };

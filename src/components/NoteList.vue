@@ -45,7 +45,9 @@
             <div v-else></div>
           </td>
           <td>
-            <router-link class="" to="/view/10">{{ task.name }}</router-link>
+            <router-link :to="{ name: 'view', params: { id: task.id } }">{{
+              task.name
+            }}</router-link>
           </td>
           <td>{{ task.type }}</td>
         </tr>

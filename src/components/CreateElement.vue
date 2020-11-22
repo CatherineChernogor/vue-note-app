@@ -62,7 +62,7 @@
 
 <script>
 export default {
-  name: "NoteList",
+  name: "CreateElement",
 
   data() {
     return {
@@ -74,6 +74,11 @@ export default {
       tasks: [],
       counter: sessionStorage.counter,
       newTask: {},
+      name: '',
+      selected: '',
+      text: '',
+      isImportant: '',
+      picked: false,
     };
   },
 
